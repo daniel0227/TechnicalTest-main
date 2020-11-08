@@ -1,0 +1,64 @@
+﻿@model TechnicalTest.Common.Models.UserInformationResponse
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@if (Model.Estado)
+{
+    <h2>Detalle - Usuario activo</h2>
+}
+else
+{
+    <h2>Detalle - Usuario inactivo</h2>
+}
+
+
+
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    @if (Model.Estado)
+    {
+        <dl class="dl-horizontal">
+            <dt>
+                Usuario
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Usuario)
+            </dd>
+            <dt>
+                Contraseña
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Contraseña)
+            </dd>
+            <dt>
+                Estado
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EstadoActual)
+            </dd>
+            <dt>
+                Nombre de usuario
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NombreUsuario)
+            </dd>
+            <dt>
+                Fecha de creacion
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FechaCreacion)
+            </dd>
+        </dl>
+    }
+    else
+    {
+        <h1>@ViewBag.Mensaje</h1> 
+    }
+
+</div>
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
