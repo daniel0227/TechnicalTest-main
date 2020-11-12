@@ -1,64 +1,49 @@
 ﻿@model TechnicalTest.Common.Models.UserInformationResponse
 
-@{
-    ViewData["Title"] = "Details";
-}
+@{ ViewData["Title"] = "Details"; }
 
 @if (Model.Estado)
 {
-    <h2>Detalle - Usuario activo</h2>
-}
-else
-{
-    <h2>Detalle - Usuario inactivo</h2>
-}
+<h2>Detalle - Usuario activo<span class="badge badge-secondary"></span></h2> }
+            else
+            {
+<h2>Detalle - Usuario inactivo<span class="badge badge-secondary"></span></h2>}
 
 
 
 <div>
-    <h4>Usuario</h4>
     <hr />
     @if (Model.Estado)
     {
-        <dl class="dl-horizontal">
-            <dt>
-                Usuario
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Usuario)
-            </dd>
-            <dt>
-                Contraseña
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Contraseña)
-            </dd>
-            <dt>
-                Estado
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.EstadoActual)
-            </dd>
-            <dt>
-                Nombre de usuario
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.NombreUsuario)
-            </dd>
-            <dt>
-                Fecha de creacion
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.FechaCreacion)
-            </dd>
-        </dl>
-    }
-    else
-    {
-        <h1>@ViewBag.Mensaje</h1> 
-    }
+
+<table class="table table-striped table-bordered">
+    <TR>
+        <TH>Usuario</TH>
+        <TD> @Html.DisplayFor(model => model.Usuario)</TD>
+    </TR>
+    <TR>
+        <TH>Contraseña</TH>
+        <TD>@Html.DisplayFor(model => model.Contraseña)</TD>
+    </TR>
+    <TR>
+        <TH>Estado</TH>
+        <TD>@Html.DisplayFor(model => model.EstadoActual)</TD>
+    </TR>
+    <TR>
+        <TH>Nombre de usuario</TH>
+        <TD>@Html.DisplayFor(model => model.NombreUsuario)</TD>
+    </TR>
+    <TR>
+        <TH>Fecha de creacion</TH>
+        <TD>@Html.DisplayFor(model => model.FechaCreacion)</TD>
+    </TR>
+</table> }
+            else
+            {
+<h1>@ViewBag.Mensaje</h1>
+    <br />}
 
 </div>
 <div>
-    <a asp-action="Index">Volver a la lista</a>
+    <a class="btn btn-danger" asp-action="Index">Volver a la lista</a>
 </div>
